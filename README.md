@@ -24,3 +24,6 @@ The available configurations are:
 - [`qwen_jpt_qlora.json`](Documentation/Hyperparameters/qwen_jpt_qlora.json): Hyperparameter configuration for the Qwen3-4B + JPT + QLoRA approach.
 
 These files provide the exact model, optimization, loss, augmentation, data-selection, and inference configurations used in the reported experiments.
+
+## Prompt Templates
+The full prompt templates used for the zero-shot baselines and the QLoRA supervised fine-tuning (SFT) setups are documented in [`Documentation/prompt_templates.md`](Documentation/prompt_templates.md). This includes the QLoRA SFT delimiter-insertion prompt, and both versions (v1 and v2) of the zero-shot generation baseline prompt used for sentence-unit boundary detection.
