@@ -1,0 +1,25 @@
+{
+  "table": "BERT Model Soups (Model 1-3), open track",
+  "shared_hyperparameters": {
+    "smart_scoring": "Deficiency Smart Scoring",
+    "random_seed": 0,
+    "focal_loss_gamma": 1.5
+  },
+  "external_data_per_model": {
+    "Model 1": {
+      "ratio": 0.20,
+      "selection": true,
+      "source": "CAMELTB"
+    },
+    "Model 2": {
+      "ratio": null,
+      "selection": false,
+      "source": null
+    },
+    "Model 3": {
+      "ratio": 0.40,
+      "selection": true,
+      "source": "CAMELTB & BAREC"
+    }
+  }
+}

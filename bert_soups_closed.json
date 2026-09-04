@@ -1,0 +1,79 @@
+{
+  "table": "BERT Model Soups (Model 1-3), closed track",
+  "per_model_hyperparameters": {
+    "Model 1": {
+      "focal_loss_gamma": 1.0,
+      "focal_loss_shared_alpha": 0.5,
+      "boundary_weights": {
+        "word": 4.0,
+        "comma": 4.5,
+        "punct": 3.0
+      },
+      "augmentation": {
+        "masking_probability": 0.20,
+        "stitching": false
+      },
+      "random_seed": 270
+    },
+    "Model 2": {
+      "focal_loss_gamma": 2.0,
+      "focal_loss_shared_alpha": 0.5,
+      "boundary_weights": {
+        "word": 2.0,
+        "comma": 1.5,
+        "punct": 1.0
+      },
+      "augmentation": {
+        "masking_probability": 0.20,
+        "stitching": true
+      },
+      "random_seed": 42
+    },
+    "Model 3": {
+      "focal_loss_gamma": 1.5,
+      "focal_loss_shared_alpha": 0.5,
+      "boundary_weights": {
+        "word": 1.0,
+        "comma": 1.5,
+        "punct": 1.0
+      },
+      "augmentation": {
+        "masking_probability": 0.15,
+        "stitching": true
+      },
+      "random_seed": 0
+    }
+  },
+  "shared_hyperparameters": {
+    "backbone": ["bert-base-arabertv2", "bert-large-arabertv2"],
+    "batch_size": "8-16 (per backbone)",
+    "regularization": {
+      "FGM_epsilon": 1.0,
+      "R_Drop_alpha": 0.35
+    },
+    "window_size": 512,
+    "stride": 128,
+    "learning_rate_base": 3e-5,
+    "discriminative_lr_decay": 0.9,
+    "epochs": "up to 200 (early-stop patience 7)",
+    "label_smoothing": 0.1,
+    "full_stop_boundary_weight": 2.75,
+    "positional_tail_boost": {
+      "value": 1.3,
+      "applies_to": "last 20%"
+    },
+    "newline_boundary_boost": 3.0,
+    "hard_example_scale_lambda": 0.5,
+    "hard_example_cap_M": 5,
+    "hem_temperature_T": 1.5,
+    "hem_update_frequency": 2,
+    "hard_doc_upsample": {
+      "k": 2,
+      "p": "25%"
+    },
+    "decision_threshold_sweep": {
+      "steps": 200,
+      "range": [0.05, 0.99]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "table": "Architecture and training hyperparameters for the CAMeLBERT-MSA and AraELECTRA models",
+  "note": "Both models use the same pretrained encoders, word-level representations, and linear boundary classifier, with the configuration applied to both open- and closed-data settings unless otherwise specified.",
+  "model_architecture": {
+    "CAMeLBERT-MSA": "CAMeL-Lab/bert-base-arabic-camelbert-msa",
+    "AraELECTRA": "aubmindlab/araelectra-base-discriminator"
+  },
+  "hyperparameters": {
+    "max_token_length": 512,
+    "window_stride": 128,
+    "word_representation": "Last subword per word",
+    "pooling": "Mean pooling",
+    "classifier": {
+      "architecture": "Linear(768 -> 2)",
+      "parameters": 1538,
+      "dropout": 0.20
+    },
+    "learning_rate": 2e-5,
+    "discriminative_lr_decay": {
+      "decay": 0.9,
+      "groups": 28
+    },
+    "weight_decay": 0.05,
+    "batch_size": {
+      "device": 16,
+      "grad_accum": 2,
+      "effective": 32
+    },
+    "warmup_ratio": 0.1,
+    "max_epochs": "15-30",
+    "early_stop_patience": 5,
+    "random_seed": 264,
+    "fp16": "Enabled",
+    "focal_loss_gamma": 1.5,
+    "label_smoothing": 0.1,
+    "fgm_epsilon": 1.0,
+    "punct_masking_probability": 0.20,
+    "boundary_weights": {
+      "word": 2.0,
+      "punct": 1.0
+    },
+    "hard_document_upsampling": {
+      "threshold": 0.5,
+      "multiplier": 2
+    },
+    "positional_loss_scale": {
+      "tail_boost": 1.3
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "table": "Architecture and training hyperparameters for the HDP Graph model",
+  "hyperparameters": {
+    "backbone": {
+      "model": "aubmindlab/bert-base-arabertv02",
+      "parameters": "136M"
+    },
+    "gnn_config": {
+      "layers": 3,
+      "type": "DenseGCNLayer",
+      "aggregation": "Relation-weighted mean agg.",
+      "dropout": 0.13
+    },
+    "classifier": {
+      "architecture": "Linear(768 -> 2)",
+      "dropout": 0.17
+    },
+    "dependency_parser": "Stanza Arabic UD",
+    "pseudo_sentence_chunk_size": "20 words",
+    "edge_config": {
+      "sequential": false,
+      "relation_buckets": "11 coarse UD relations"
+    },
+    "relation_weights_initial": "Learned scalar per relation (init. 0)",
+    "max_token_length": 256,
+    "window_stride": 64,
+    "loss": {
+      "type": "Focal",
+      "gamma": 1.5,
+      "alpha": 0.5
+    },
+    "label_smoothing": 0.1,
+    "class_weights": "Auto, sqrt-dampened inverse frequency",
+    "adversarial_training": {
+      "type": "FGM",
+      "epsilon": 0.55
+    },
+    "learning_rate": 3e-5,
+    "discriminative_lr_decay": "0.9/layer",
+    "gradual_unfreezing": "3 layers/restart, patience 3",
+    "weight_decay": 0.12,
+    "batch_size": 16,
+    "max_epochs": 200,
+    "early_stop_patience": 8,
+    "threshold_sweep": {
+      "range": [0.25, 0.75],
+      "steps": 400
+    },
+    "paragraph_boundary_forcing": true,
+    "random_seed": 1,
+    "fp16": true
+  }
+}
