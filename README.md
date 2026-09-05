@@ -1,7 +1,7 @@
 # araseg-shared-task-AUC-DL-Lab
 ## Zero-Shot Document Categorization via Gemini
 To establish document domain distributions for error profiling, we performed zero-shot categorization
-using Gemini 3.6 Flash to reconstruct the categorization shown in the Elkholy et al. (2026a) paper.
+using Gemini 3.6 Flash to reconstruct the categorization shown in the [Elkholy et al. (2026a)](https://arxiv.org/pdf/2606.08025) paper.
 Documents were processed in batches of 25. Each prompt included the document identifiers, full
 document text, and the target categories allowed. For each document, the model was instructed to return:
 1. The assigned category from the permitted taxonomy.
